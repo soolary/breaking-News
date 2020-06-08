@@ -23,7 +23,6 @@
 }
 
 .text-avatar {
-    display: none;
     display: inline-block;
     width: 32px;
     height: 32px;
@@ -33,4 +32,5 @@
     background-color: 0 #419488;
     font-size: 18px;
     margin-right: 5px;
+    display: none;
 }

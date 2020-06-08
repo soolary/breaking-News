@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+<script>
+    if (localStorage.getItem('token') === null) {
+        location.href = '/login.html'
+    }
+</script>
 
 <head>
     <meta charset="UTF-8">
@@ -29,10 +34,11 @@
                         </a>
                         <dl class="layui-nav-child">
                             <dd><a href="">基本资料</a></dd>
-                            <dd><a href="">安全设置</a></dd>
+                            <dd><a href="">更换头像</a></dd>
+                            <dd><a href="">重置密码</a></dd>
                         </dl>
                     </li>
-                    <li class="layui-nav-item"><a href="">退出</a></li>
+                    <li class="layui-nav-item" id='logout'><a href="javascript:;">退出</a></li>
                 </ul>
             </div>
 

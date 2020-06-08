@@ -59,6 +59,7 @@ $(function() {
             data: $(this).serialize(),
             success: function(res) {
                 if (res.status === 0) {
+                    localStorage.setItem('token', res.token)
                     location.href = '/index.html'
                     layer.msg('登录成功');
                 }
