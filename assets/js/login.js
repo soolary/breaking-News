@@ -59,7 +59,7 @@ $(function() {
             data: $(this).serialize(),
             success: function(res) {
                 if (res.status === 0) {
-                    // location.href = '/index.html'
+                    location.href = '/index.html'
                     layer.msg('登录成功');
                 }
 
