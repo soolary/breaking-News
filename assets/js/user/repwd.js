@@ -15,14 +15,15 @@ $(function() {
             }
         }
     })
-    $('form').on('submit', function() {
+    $('form').on('submit', function(e) {
         e.preventDefault();
         $.ajax({
             type: 'post',
-            url: '/my/updatepwd',
+            url: 'http://www.liulongbin.top:3007/my/updatepwd',
             data: $(this).serialize(),
             success: function(res) {
-                console.log(res);
+                layer.msg(res.message);
+                
                 if (res.stasus === 0) {
                     $('form')[0].reset();
                 }
@@ -31,7 +32,7 @@ $(function() {
                 'Authorization': localStorage.getItem('token')
             },
             complete: function(xhr) {
-                if (xhr.responseJSON.stasus === 1 && xhr.responseJSON.message === '身份认证失败') {
+                if (xhr.responseJSON.stasus === 1 && xhr.responseJSON.message === '身份认证失败!') {
                     localStorage.removeItem('token')
                     window.parent.location.href = '/login.html'
                 }
