@@ -18,7 +18,7 @@ function getUserInfo() {
         },
         success: function(res) {
             console.log(res);
-            console.log(localStorage.getItem('token'));
+            // console.log(localStorage.getItem('token'));
             if (res.status === 0) {
                 var myname = res.data.nickname || res.data.username;
                 $('.myname').text(myname);
