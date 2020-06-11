@@ -16,6 +16,7 @@ $(function() {
         }
     })
 <<<<<<< HEAD
+<<<<<<< HEAD
     $('form').on('submit', function() {
         e.preventDefault();
         $.ajax({
@@ -25,6 +26,8 @@ $(function() {
             success: function(res) {
                 console.log(res);
 =======
+=======
+>>>>>>> user
     $('form').on('submit', function(e) {
         e.preventDefault();
         $.ajax({
@@ -34,6 +37,9 @@ $(function() {
             success: function(res) {
                 layer.msg(res.message);
                 
+<<<<<<< HEAD
+>>>>>>> user
+=======
 >>>>>>> user
                 if (res.stasus === 0) {
                     $('form')[0].reset();
@@ -44,7 +50,11 @@ $(function() {
             },
             complete: function(xhr) {
 <<<<<<< HEAD
+<<<<<<< HEAD
                 if (xhr.responseJSON.stasus === 1 && xhr.responseJSON.message === '身份认证失败') {
+=======
+                if (xhr.responseJSON.stasus === 1 && xhr.responseJSON.message === '身份认证失败!') {
+>>>>>>> user
 =======
                 if (xhr.responseJSON.stasus === 1 && xhr.responseJSON.message === '身份认证失败!') {
 >>>>>>> user

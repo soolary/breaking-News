@@ -7,6 +7,7 @@ function renderUser() {
         success: function(res) {
             console.log(res);
 <<<<<<< HEAD
+<<<<<<< HEAD
             if (res.stasus === 0) {
                 $('input[name="id"]').val(res.data.id);
                 $('input[name-="username"]').val(res.data.username);
@@ -14,6 +15,8 @@ function renderUser() {
                 $('input[name="email"]').val(res.data.email);
                 // form.val('abc', res.data)
 =======
+=======
+>>>>>>> user
             if (res.status === 0) {
                 console.log(123);
                 
@@ -22,6 +25,9 @@ function renderUser() {
               //  $('input[name="nickname"]').val(res.data.nickname);
               //  $('input[name="email"]').val(res.data.email);
              form.val('abc', res.data)
+<<<<<<< HEAD
+>>>>>>> user
+=======
 >>>>>>> user
             }
         },
@@ -30,7 +36,11 @@ function renderUser() {
         },
         complete: function(xhr) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             if (xhr.responseJSON.stasus === 1 && xhr.responseJSON.message === '身份认证失败') {
+=======
+            if (xhr.responseJSON.stasus === 1 && xhr.responseJSON.message === '身份认证失败!') {
+>>>>>>> user
 =======
             if (xhr.responseJSON.stasus === 1 && xhr.responseJSON.message === '身份认证失败!') {
 >>>>>>> user
@@ -45,6 +55,7 @@ $(function() {
     $('form').on('submit', function(e) {
         e.preventDefault();
 <<<<<<< HEAD
+<<<<<<< HEAD
         $.ajax({
             type: 'post',
             url: 'http://www.liulongbin.top:3007/my/userinfo',
@@ -58,6 +69,8 @@ $(function() {
         })
     })
 =======
+=======
+>>>>>>> user
         var data=$(this).serialize();
         $.ajax({
             type: 'post',
@@ -88,5 +101,8 @@ $(function() {
         // 恢复成和没改之前一样
         renderUser();
     });
+<<<<<<< HEAD
+>>>>>>> user
+=======
 >>>>>>> user
 })
