@@ -24,25 +24,12 @@ $(function(){
             .toDataURL('image/png');
             $.ajax({
                 type: 'POST',
-                url: 'http://www.liulongbin.top:3007/my/update/avatar',
+                url: '/my/update/avatar',
                 data: {avatar: dataURL},
                 success:function(res){
                     layer.msg(res.message);
                     if(res.status===0){
                         window.parent.getUserInfo();
-                    }
-                },
-                headers: {
-                    'Authorization': localStorage.getItem('token')
-                },
-                complete: function (xhr) {
-                    if (xhr.responseJSON.status === 1 && xhr.responseJSON.message === '身份认证失败！') {
-                        // 清楚过期的token或者无效的token
-                        localStorage.removeItem('token');
-                        // 跳转到登录页
-                        // window 表示当前的窗口，即repwd.html
-                        // window.parent 表示当前窗口的父窗口，即index.html
-                        window.parent.location.href = '/login.html';
                     }
                 }
             })

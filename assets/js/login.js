@@ -20,7 +20,7 @@ $(function() {
             // 4 ajax提交账号和密码到接口
             $.ajax({
                 type: 'POST',
-                url: 'http://www.liulongbin.top:3007/api/reguser',
+                url: '/api/reguser',
                 data: data,
                 success: function(res) {
                     // 5 根据接口返回的结果

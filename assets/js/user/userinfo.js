@@ -1,108 +1,66 @@
-var form = layui.form
+// 全局变量，加载layui的form模块
+var form = layui.form;
 
-function renderUser() {
+function renderUser () {
+    // 获取用户信息，获取之后，为表单赋值
     $.ajax({
-        type: 'get',
-        url: 'http://www.liulongbin.top:3007/my/userinfo',
-        success: function(res) {
-            console.log(res);
-<<<<<<< HEAD
-<<<<<<< HEAD
-            if (res.stasus === 0) {
-                $('input[name="id"]').val(res.data.id);
-                $('input[name-="username"]').val(res.data.username);
-                $('input[name="nickname"]').val(res.data.nickname);
-                $('input[name="email"]').val(res.data.email);
-                // form.val('abc', res.data)
-=======
-=======
->>>>>>> user
+        url: '/my/userinfo',
+        success: function (res) {
             if (res.status === 0) {
-                console.log(123);
-                
-              //  $('input[name="id"]').val(res.data.id);
-              //  $('input[name="username"]').val(res.data.username);
-              //  $('input[name="nickname"]').val(res.data.nickname);
-              //  $('input[name="email"]').val(res.data.email);
-             form.val('abc', res.data)
-<<<<<<< HEAD
->>>>>>> user
-=======
->>>>>>> user
-            }
-        },
-        headers: {
-            'Authorization': localStorage.getItem('token')
-        },
-        complete: function(xhr) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-            if (xhr.responseJSON.stasus === 1 && xhr.responseJSON.message === '身份认证失败') {
-=======
-            if (xhr.responseJSON.stasus === 1 && xhr.responseJSON.message === '身份认证失败!') {
->>>>>>> user
-=======
-            if (xhr.responseJSON.stasus === 1 && xhr.responseJSON.message === '身份认证失败!') {
->>>>>>> user
-                localStorage.removeItem('token')
-                window.parent.location.href = '/login.html'
+                // 获取数据成功，数据是 res.data
+                // 为表单赋值（id、username、nickname、email）
+                // $('input[name="id"]').val(res.data.id);
+                // $('input[name="username"]').val(res.data.username);
+                // $('input[name="nickname"]').val(res.data.nickname);
+                // $('input[name="email"]').val(res.data.email);
+
+                // 使用layui提供的快速为表单赋值
+                // form.val('abc', {
+                //     id: 2232,
+                //     username: 'laotang12345',
+                //     nickname: 'aaaa',
+                //     email: 'xxx'
+                // });
+                form.val('abc', res.data);
             }
         }
-    })
+    });
 }
-$(function() {
+
+$(function () {
+    // ----------------  设置input的value值（数据回填、为表单赋值） ----
     renderUser();
-    $('form').on('submit', function(e) {
+
+
+    // ---------------- 监听表单提交事件，完成信息更新 ----------------
+    $('form').on('submit', function (e) {  
+        // 1、阻止表单提交行为
         e.preventDefault();
-<<<<<<< HEAD
-<<<<<<< HEAD
+        // 2、收集表单各项的值
+        var data = $(this).serialize(); // serialize方法不能收集 禁用元素的值
+        // console.log(data);
+        // return;
+        // 3、Ajax提交给接口
         $.ajax({
-            type: 'post',
-            url: 'http://www.liulongbin.top:3007/my/userinfo',
-            data: $(this).serialize(),
-            success: function(res) {
-                console.log(res);
-                if (res.stasus === 0) {
-
-                }
-            }
-        })
-    })
-=======
-=======
->>>>>>> user
-        var data=$(this).serialize();
-        $.ajax({
-            type: 'post',
-            url: 'http://www.liulongbin.top:3007/my/userinfo',
+            type: 'POST',
+            url: '/my/userinfo',
             data: data,
-            success: function(res) {
-                console.log(res);
+            success: function (res) {
+                // 4、完成更新之后—？
+                // 4.1 提示一下
                 layer.msg(res.message);
+                // 4.2 更新欢迎语，调用父页面的一个函数 getUserInfo();
                 window.parent.getUserInfo();
-            },
-            headers:{'authorization':localStorage.getItem('token')},
-            complete:function(xhr){
-                if (xhr.responseJSON.status === 1 && xhr.responseJSON.message === '身份认证失败！') {
-                    // 清楚过期的token或者无效的token
-                    localStorage.removeItem('token');
-                    // 跳转到登录页
-                    // window 表示当前的窗口，即repwd.html
-                    // window.parent 表示当前窗口的父窗口，即index.html
-                    window.parent.location.href = '/login.html';
-                }
             }
-
-        })
+        });
+        
     })
+
+    // ---------------- 重置 -------------------------------------
     $('button[type="reset"]').click(function (e) {
         // 阻止默认清空表单行为
         e.preventDefault();
         // 恢复成和没改之前一样
         renderUser();
     });
-<<<<<<< HEAD
->>>>>>> user
-=======
->>>>>>> user
-})
+});
