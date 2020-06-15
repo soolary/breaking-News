@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>类别管理</title>
-    <link rel="stylesheet" href="/assets/css/artical/category.css">
+    <link rel="stylesheet" href="/assets/css/article/category.css">
     <link rel="stylesheet" href="/assets/lib/layui/css/layui.css">
 
     <script src="/assets/lib/jquery.js"></script>
     <script src="/assets/lib/template-web.js"></script>
     <script src="/assets/lib/layui/layui.all.js"></script>
     <script src="/assets/js/common.js"></script>
-    <script src="/assets/js/artical/category.js"></script>
+    <script src="/assets/js/article/category.js"></script>
 </head>
 <body>
     <div class="layui-card">
@@ -47,10 +47,32 @@
           <td>{{val.alias}}</td>
           <td>
               <button type="button" class="layui-btn layui-btn-xs">编辑</button>
-              <button type="button" class="layui-btn layui-btn-xs layui-btn-danger">删除</button>
+              <button data-id={{val.Id}} type="button" class="layui-btn layui-btn-xs layui-btn-danger delete">删除</button>
           </td>
         </tr>
         {{/each}}
+    </script>
+    <script type='text/html' id="tpl-edit">
+      <form class="layui-form" id="edit-form" action="" lay-filter="edit-form" style="margin: 20px 30px 0 0">
+        <div class="layui-form-item">
+          <label class="layui-form-label">类别名称</label>
+          <div class="layui-input-block">
+            <input type="text" name="name" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label">类别别名</label>
+          <div class="layui-input-block">
+            <input type="text" name="alias" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">确认修改</button>
+            <!-- <button type="reset" class="layui-btn layui-btn-primary">重置</button> -->
+          </div>
+        </div>
+      </form>
     </script>
 </body>
 </html>
