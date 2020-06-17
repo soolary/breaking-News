@@ -61,7 +61,7 @@ $(function() {
     $('body').on('click', '#edit', function() {
         var data = this.dataset;
 
-        var editIndex = layer.open({
+        editIndex = layer.open({
             type: 1,
             title: '编辑类别',
             content: $('#tpl-edit').html(),
