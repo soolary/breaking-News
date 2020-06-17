@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章管理</title>
+    <link rel="stylesheet" href="/assets/css/article/article.css">
+    <link rel="stylesheet" href="/assets/lib/layui/css/layui.css">
+
+    <script src="/assets/lib/jquery.js"></script>
+    <script src="/assets/lib/template-web.js"></script>
+    <script src="/assets/lib/layui/layui.all.js"></script>
+    <script src="/assets/js/common.js"></script>
+    <script src="/assets/js/article/article.js"></script>
+</head>
+
+<body>
+    <div class="layui-card">
+        <div class="layui-card-header">文章列表</div>
+        <div class="layui-card-body">
+            <form class="layui-form" action="">
+                <div class="layui-inline" style="width: 200px;">
+                    <select name="city" lay-verify="">
+                        <option value="">请选择一个城市</option>
+                        <option value="010">北京</option>
+                        <option value="021">上海</option>
+                        <option value="0571">杭州</option>
+                      </select>
+                </div>
+                <div class="layui-inline" style="width: 200px;">
+                    <select name="city" lay-verify="">
+                        <option value="">请选择一个城市</option>
+                        <option value="010">北京</option>
+                        <option value="021">上海</option>
+                        <option value="0571">杭州</option>
+                      </select>
+                </div>
+                <div class="layui-inline">
+                    <button class="layui-btn" lay-submit lay-filter="formDemo">筛选</button>
+                </div>
+            </form>
+            <table class="layui-table">
+                <colgroup>
+                    <col width="35%">
+                    <col width="17%">
+                    <col width="20%">
+                    <col width="17%">
+                    <col>
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>文章标题</th>
+                        <th>分类</th>
+                        <th>发表时间</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+            <div id="page"></div>
+        </div>
+
+    </div>
+    <script type="text/html" id='tpl-article'>
+        {{each data val}}
+        <tr>
+            <input type="hidden" name="" id={{val.id}}>
+            <td>{{val.title}}</td>
+            <td>{{val.cate_name}}</td>
+            <td>{{val.pub_date}}</td>
+            <td>{{val.state}}</td>
+            <td>
+                <button type="button" class="layui-btn layui-btn-xs ">编辑</button>
+                <button type="button" class="layui-btn layui-btn-xs layui-btn-danger">删除</button>
+            </td>
+        </tr>
+        {{/each}}
+    </script>
+</body>
+
+</html>
