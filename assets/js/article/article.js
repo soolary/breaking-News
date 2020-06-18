@@ -3,10 +3,11 @@ $(function() {
     form.render('select');
     var data = {
         pagenum: 1,
-        pagesize: 5,
+        pagesize: 10,
         // cate_id:,
         // state:
     }
+    renderArticle()
 
     function renderArticle() {
         $.ajax({
@@ -16,9 +17,18 @@ $(function() {
             success: function(res) {
                 if (res.status === 0) {
                     var str = template('tpl-article', res);
-                    $('#tbody').html(str)
+                    $('tbody').html(str)
                 }
             }
         })
     }
+    $('body').on('click', '.edit', function() {
+        var id = $(this).attr('data-id');
+        console.log(id);
+    })
+    $('body').on('click', '.delete', function() {
+        var id = $(this).attr('data-id');
+        console.log(id);
+
+    })
 })
