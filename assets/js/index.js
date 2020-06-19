@@ -9,6 +9,7 @@ $(function() {
     })
 })
 
+
 function getUserInfo() {
     $.ajax({
         type: 'get',
@@ -29,7 +30,7 @@ function getUserInfo() {
                 }
             }
         },
-        
+
 
     })
 }

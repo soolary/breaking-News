@@ -19,22 +19,16 @@
     <div class="layui-card">
         <div class="layui-card-header">文章列表</div>
         <div class="layui-card-body">
-            <form class="layui-form" action="">
-                <div class="layui-inline" style="width: 200px;">
-                    <select name="city" lay-verify="">
-                        <option value="">请选择一个城市</option>
-                        <option value="010">北京</option>
-                        <option value="021">上海</option>
-                        <option value="0571">杭州</option>
-                      </select>
+            <form id="search-form" class="layui-form" action="">
+                <div class="layui-input-inline" style="width: 200px;">
+                    <select name="cate_id" id="category" lay-verify=""></select>
                 </div>
                 <div class="layui-inline" style="width: 200px;">
-                    <select name="city" lay-verify="">
-                        <option value="">请选择一个城市</option>
-                        <option value="010">北京</option>
-                        <option value="021">上海</option>
-                        <option value="0571">杭州</option>
-                      </select>
+                    <select name="state" lay-verify="">
+                    <option value="">请选择状态</option>
+                    <option value="已发布">已发布</option>
+                    <option value="草稿">草稿</option>
+                  </select>
                 </div>
                 <div class="layui-inline">
                     <button class="layui-btn" lay-submit lay-filter="formDemo">筛选</button>
@@ -79,6 +73,12 @@
             </td>
         </tr>
         {{/each}}
+    </script>
+    <script type="text/html" id="tpl-category">
+        <option value="">请选择分类</option>
+        {{each data val}}
+        <option value="{{val.Id}}">{{val.name}}</option>{{/each}}
+
     </script>
 </body>
 

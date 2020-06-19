@@ -60,10 +60,11 @@ $(function() {
 
                     if (res.status === 0) {
                         location.href = '/article/article.html';
+                        // $('a:contains("文章列表")').click()
                     }
                 }
             })
-        })
 
+        })
     })
 })
